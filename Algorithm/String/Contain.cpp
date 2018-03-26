@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -41,7 +42,43 @@ bool StringContain(string &a,string &b)
 	return true;
 }
 
+/*
+事实上，可以先把长字符串a中的所有字符都放入一个Hashtable里，然后轮询短字符串b，看短字符串b的每个字符是否都在Hashtable里，如果都存在，说明长字符串a包含短字符串b，否则，说明不包含。
+*/
+
+bool StringContainByHash(string &a,string &b){
+	int hash = 0;
+	
+	for (int i = 0;i<a.length();++i){
+		hash |= (1 <<(a[i] - 'A'));
+	}
+	
+	for (int i = 0;i < b.length();i++){
+		
+		if((hash & (1 << (b[i] - 'A'))) == 0){
+			return false;
+		}
+		
+	}
+	
+	
+	return true;
+	
+	
+}
+
+
+
 
 int main(int argc, char *argv[]) {
+	
+	string a = "abcdef";
+	string b = "ed";
+	
+	if(StringContainByHash(a,b)){
+		cout << "包含" << endl;
+	}else{
+		cout << "不包含" << endl;
+	}
 	
 }
