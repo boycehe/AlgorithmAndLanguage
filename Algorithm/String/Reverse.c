@@ -16,7 +16,7 @@ void leftShiftOne(char* s, int sLen)
 
 }
 //这里的时间复杂度为O(m*n)
-void leftRotateString(char* s, int n, int m)
+void leftRotateStringA(char* s, int n, int m)
 {
 	while (m--)
 	{
@@ -25,7 +25,9 @@ void leftRotateString(char* s, int n, int m)
 }
 /*----------------暴力移位法end--------------------*/
 /*----------------三步移位法begin------------------*/
-
+/*
+时间复杂度为
+*/
 void reverseString(char *s,int from,int to){
 	
 	while (from < to) {
@@ -35,22 +37,25 @@ void reverseString(char *s,int from,int to){
 		s[to--] = t;
 		
 	}
+	printf("%s\n",s);
 	
 }
 
-void leftRotateString(char *s,int n,int m){
+void leftRotateStringB(char *s,int n,int m){
 	
-	m % n;
+	m %= n;
 	reverseString(s,0,m-1);
 	reverseString(s,m,n-1);
 	reverseString(s,0,n-1);
 }
 
 /*----------------三步移位法end--------------------*/
+
+
 int main(int argc, char *argv[]) {
 
 	char s[10] = "abcdefg";
-	leftRotateString(s,7,2);
+	leftRotateStringB(s,7,2);
 	
 }
 
