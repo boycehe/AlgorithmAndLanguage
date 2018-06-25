@@ -9,9 +9,6 @@ class MergeSort {
 	public static void main(String[] args) {
 		
 		int[] list = {2,1,4,11,22,5,9,7,10,6,8,21};
-		
-	
-		
 		start(list);
 		
 	}
@@ -26,15 +23,16 @@ class MergeSort {
 		}
 		
 	}
-	
-	
+
 	public static void sort(int[] arr,int left,int right,int[] temp){
 		
 		if (left < right) {
+			
 			int mid = (left + right)/2;
 			sort(arr, left, mid, temp);
 			sort(arr, mid+1, right, temp);
 			merge(arr, left, mid, right, temp);
+			
 		}
 	
 	}
