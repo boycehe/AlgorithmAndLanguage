@@ -7,7 +7,7 @@ class BubbleSort {
 	
 	public static void main(String[] args) {
 		
-		int[] list = new int[12];
+			int[] list = new int[12];
 			
 			list[0] = 2;
 			list[1] = 1;
